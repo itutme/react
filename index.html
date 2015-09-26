@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Getting Started with ReactJS</title>
+    <script src="assets/JSXTransformer.js"></script>
     <script src="assets/react.js"></script>
     <link rel="stylesheet" href="assets/bootstrap.css">
     <style type="text/css">
@@ -11,106 +12,23 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <form class="bs-example bs-example-form" data-example-id="input-group-with-button">
-        <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-        </span>
-        </div>
-      </form>
-  
-      <h1>Ontreat</h1>
-      
-      <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Task</th>
-            <th>Status</th>
-            <th>Assign</th>
-            <th>Type</th>
-            <th>Version</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>25462</td>
-            <td>Move __unicode__ documentation and its notice after __str__</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Cleanup/optimization</td>
-            <td>master</td>
-          </tr>
-          <tr>
-            <td>25461</td>
-            <td>Mistake in model _meta API migration guide for multi-table inheritance</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Bug</td>
-            <td>Bug</td>
-          </tr>
-          <tr>
-            <td>25458</td>
-            <td>Cookie parse error with wrong django.contrib.message</td>
-            <td>assigned</td>
-            <td>timgraham</td>
-            <td>Bug</td>
-            <td>master</td>
-          </tr>
-           <tr>
-            <td>25456</td>
-            <td>GenericIPAddressField does not normalize IPv4 addresses</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Cleanup/optimization</td>
-            <td>master</td>
-          </tr>
-           <tr>
-            <td>25427</td>
-            <td>Trying to do a full text search query on a database field (non model field), the .annotate(val=RawSQL(...)).filter(val=VAL1) doesn't work.</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Bug</td>
-            <td>master</td>
-          </tr>
-           <tr>
-            <td>25425</td>
-            <td>Enforce calling resolve_expression before as_sql on all expressions</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Cleanup/optimization</td>
-            <td>master</td>
-          </tr>
-            <tr>
-            <td>25412</td>
-            <td>Migrate command does not create index with operator class for CharField</td>
-            <td>assigned</td>
-            <td>bsebi</td>
-            <td>Bug</td>
-            <td>master</td>
-          </tr>
-            <tr>
-            <td>25409</td>
-            <td>Allow url and groups of urls to be easily tagged and selected</td>
-            <td>assigned</td>
-            <td>@É</td>
-            <td>New feature</td>
-            <td>master</td>
-          </tr>
-           <tr>
-            <td>25408</td>
-            <td>Pass additional arguments to BaseForm.__init__ from BaseModelForm.__init__</td>
-            <td>new</td>
-            <td>nobody</td>
-            <td>Cleanup/optimization</td>
-            <td>master</td>
-          </tr>
-         
-        </tbody>
-      </table>
-    </div><!-- /.container -->
+    <div class="container" id="content">
+
+    </div>
+
+    <script type="text/jsx">
+       var HelloMessage = React.createClass({
+          render: function() {
+            return (
+              <h1>Hello World!</h1>
+            );
+          }
+        });
+        React.render(
+          <HelloMessage />,
+          document.getElementById('content')
+        );
+    </script>
+
   </body>
 </html>
