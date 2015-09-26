@@ -53,6 +53,12 @@
 
         var TaskTable = React.createClass({
           render: function() {
+            var tasks = this.props.tasks.map(function (task) {
+              return (
+                <TaskRow task={task}/>
+              );
+            });
+
             return (
               <div className="table-responsive">
                 <table className="table table-bordered">
@@ -67,7 +73,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <TaskRow task={this.props.task}/>
+                    {tasks}
                   </tbody>
                 </table>
               </div>
@@ -81,23 +87,37 @@
               <div className="container">
                 <SearchForm />
                 <ProjectName />
-                <TaskTable task={this.props.task}/>
+                <TaskTable tasks={this.props.tasks}/>
               </div>
             );
           }
         });
 
-        var task = {
-            "id": "2546",
-            "task": "Mistake in model _meta API migration guide for multi-table inheritanc",
-            "status": "new",
-            "assigned": "nobody",
-            "type": "Bug",
-            "version": "1.8"
-        };
+        var tasks = [
+              {"id": "25462", "task": "Move __unicode__ documentation and its notice after __str__", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25461", "task": "Mistake in model _meta API migration guide for multi-table inheritance", "status": "new", "assigned": "nobody", "type": "Bug", "version": "1.8"},
+              {"id": "25458", "task": "Cookie parse error with wrong django.contrib.message", "status": "assigned", "assigned": "timgraham", "type": "Bug", "version": "1.8"},
+              {"id": "25456", "task": "GenericIPAddressField does not normalize IPv4 addresses", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "1.8"},
+              {"id": "25427", "task": "Trying to do a full text search query on a database field (non model field) the .annotate(val=RawSQL(...)).filter(val=VAL1) doesn't work.", "status": "new", "assigned": "nobody", "type": "Bug", "version": "master"},
+              {"id": "25425", "task": "Enforce calling resolve_expression before as_sql on all expressions", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25412", "task": "Migrate command does not create index with operator class for CharField", "status": "assigned", "assigned": "bsebi", "type": "Bug", "version": "master"},
+              {"id": "25409", "task": "Allow url and groups of urls to be easily tagged and selected", "status": "assigned", "assigned": "@ƒ", "type": "New feature", "version": "master"},
+              {"id": "25408", "task": "Pass additional arguments to BaseForm.__init__ from BaseModelForm.__init__", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25395", "task": "Add an optional dependency on python-fastpbkdf2", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25389", "task": "SimpleLazyObject doesn't pickle correctly when wrapping a Model", "status": "assigned", "assigned": "benjaminjkraft", "type": "Bug", "version": "1.8"},
+              {"id": "25388", "task": "Allow disabling of all migrations during tests", "status": "new", "assigned": "nobody", "type": "New feature", "version": "master"},
+              {"id": "25387", "task": "ModelAdmin actions don't get access to the ActionForm", "status": "new", "assigned": "nobody", "type": "New feature", "version": "master"},
+              {"id": "25385", "task": "Allow importing django.views.generic.View from django.views.View", "status": "new", "assigned": "jambonrose", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25298", "task": "Forbid QuerySet filtering by a related field that expects a single value when multiple values are returned", "status": "assigned", "assigned": "Y3K", "type": "Cleanup/optimization", "version": "1.8"},
+              {"id": "25290", "task": "Warn against modifying objects created in setUpTestData", "status": "new", "assigned": "nobody", "type": "Cleanup/optimization", "version": "1.8"},
+              {"id": "25287", "task": "Multiplying and dividing connectors for datetime expressions are not supported by sqlite backed.", "status": "assigned", "assigned": "caioariede", "type": "New feature", "version": "1.8"},
+              {"id": "25279", "task": "Make prefetch_related_objects a public API", "status": "new", "assigned": "nobody", "type": "New feature", "version": "1.8"},
+              {"id": "25277", "task": "Remove python3-memcached from test dependencies", "status": "new", "assigned": "timgraham", "type": "Cleanup/optimization", "version": "master"},
+              {"id": "25201", "task": "Allow use_for_related_fields via as_manager()", "status": "assigned", "assigned": "andersonresende", "type": "New feature", "version": "1.8"}
+        ];
 
         React.render(
-          <TaskBox task={task}/>,
+          <TaskBox tasks={tasks}/>,
           document.body
         );
     </script>
