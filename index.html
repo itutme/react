@@ -31,8 +31,31 @@
             );
           }
         });
+       var TaskTable = React.createClass({
+          render: function() {
+            return (
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Task</th>
+                      <th>Status</th>
+                      <th>Assign</th>
+                      <th>Type</th>
+                      <th>Version</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <TaskRow />
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+        });
         React.render(
-          <TaskRow />,
+          <TaskTable />,
           document.getElementById('content')
         );
     </script>
