@@ -12,12 +12,31 @@
     </style>
   </head>
   <body>
-    <div class="container" id="content">
-
-    </div>
-
     <script type="text/jsx">
-       var TaskRow = React.createClass({
+        var SearchForm = React.createClass({
+          render: function() {
+            return (
+              <form className="bs-example bs-example-form" data-example-id="input-group-with-button">
+                <div className="input-group">
+                <input type="text" className="form-control" placeholder="Search for..." />
+                <span className="input-group-btn" >
+                <button className="btn btn-default" type="button">Go!</button>
+                </span>
+                </div>
+              </form>
+            );
+          }
+        });
+
+        var ProjectName = React.createClass({
+          render: function() {
+            return (
+              <h1>Ontreat</h1>
+            );
+          }
+        });
+
+        var TaskRow = React.createClass({
           render: function() {
             return (
               <tr>
@@ -31,11 +50,12 @@
             );
           }
         });
-       var TaskTable = React.createClass({
+
+        var TaskTable = React.createClass({
           render: function() {
             return (
-              <div class="table-responsive">
-                <table class="table table-bordered">
+              <div className="table-responsive">
+                <table className="table table-bordered">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -54,9 +74,22 @@
             );
           }
         });
+
+        var TaskBox = React.createClass({
+          render: function() {
+            return (
+              <div className="container">
+                <SearchForm />
+                <ProjectName />
+                <TaskTable />
+              </div>
+            );
+          }
+        });
+
         React.render(
-          <TaskTable />,
-          document.getElementById('content')
+          <TaskBox />,
+          document.body
         );
     </script>
 
