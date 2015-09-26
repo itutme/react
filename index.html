@@ -20,12 +20,12 @@
        var HelloMessage = React.createClass({
           render: function() {
             return (
-              <h1>Hello World!</h1>
+              <h1>{this.props.message}</h1>
             );
           }
         });
         React.render(
-          <HelloMessage />,
+          <HelloMessage message="Hello World!"/>,
           document.getElementById('content')
         );
     </script>
