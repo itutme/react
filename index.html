@@ -40,12 +40,12 @@
           render: function() {
             return (
               <tr>
-                <td>25412</td>
-                <td>Migrate command does not create index with operator class for CharField</td>
-                <td>assigned</td>
-                <td>bsebi</td>
-                <td>Bug</td>
-                <td>master</td>
+                <td>{this.props.task.id}</td>
+                <td>{this.props.task.task}</td>
+                <td>{this.props.task.status}</td>
+                <td>{this.props.task.assigned}</td>
+                <td>{this.props.task.type}</td>
+                <td>{this.props.task.version}</td>
               </tr>
             );
           }
@@ -67,7 +67,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <TaskRow />
+                    <TaskRow task={this.props.task}/>
                   </tbody>
                 </table>
               </div>
@@ -81,14 +81,23 @@
               <div className="container">
                 <SearchForm />
                 <ProjectName />
-                <TaskTable />
+                <TaskTable task={this.props.task}/>
               </div>
             );
           }
         });
 
+        var task = {
+            "id": "2546",
+            "task": "Mistake in model _meta API migration guide for multi-table inheritanc",
+            "status": "new",
+            "assigned": "nobody",
+            "type": "Bug",
+            "version": "1.8"
+        };
+
         React.render(
-          <TaskBox />,
+          <TaskBox task={task}/>,
           document.body
         );
     </script>
